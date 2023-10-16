@@ -15,7 +15,6 @@ app.use(cors({ origin: '*' }));
 app.use(express.json());
 
 app.use('/', routes);
-
 try {
 	sequelize.authenticate();
 	console.log('Connection has been established successfully.');

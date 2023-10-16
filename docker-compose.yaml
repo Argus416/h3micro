@@ -10,6 +10,8 @@ services:
         environment:
             POSTGRES_USER: mohamad
             POSTGRES_PASSWORD: 123321
+        networks:
+            - h3micronetwork
 
     client:
         build: ./client
@@ -24,7 +26,8 @@ services:
         links:
             - server
         restart: on-failure
-
+        networks:
+            - h3micronetwork
     server:
         build: ./server
         container_name: h3micro_server
@@ -39,3 +42,8 @@ services:
             PORT: 8000
             POSTGRES_URI: postgres://mohamad:123321@db:5432/postgres
         restart: on-failure
+        networks:
+            - h3micronetwork
+networks:
+    h3micronetwork:
+        driver: bridge
