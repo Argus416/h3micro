@@ -19,6 +19,8 @@
 		"nodemon": "^3.0.1",
 		"pg": "^8.11.3",
 		"sequelize": "^6.33.0",
-		"sqlite3": "^5.1.6"
+		"sqlite3": "^5.1.6",
+		"swagger-ui-express": "5.0.0",
+		"swagger-jsdoc": "6.2.8"
 	}
 }

@@ -6,15 +6,44 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const listEndpoints = require('express-list-endpoints'); // npm i express-list-endpoints
+const swaggerUi = require('swagger-ui-express');
+const swaggerJsdoc = require('swagger-jsdoc');
 
 const routes = require('./routes');
 
 const { sequelize } = require('./db');
+const options = {
+	definition: {
+		openapi: '3.0.0',
+		info: {
+			title: 'H3 Microservice',
+			version: '1.0.0',
+		},
+	},
+	apis: ['./index.js', './routes/*.js'], // files containing annotations as above
+};
+
+const openapiSpecification = swaggerJsdoc(options);
 
 app.use(cors({ origin: '*' }));
 app.use(express.json());
 
 app.use('/', routes);
+
+/**
+ * @openapi
+ * /api-docs:
+ *   get:
+ *     description: Welcome to swagger-jsdoc!
+ *     tags:
+ *       - Swagger
+ *     responses:
+ *       200:
+ *         description: Return swagger documentation
+ */
+
+app.use('/api-docs', swaggerUi.serve);
+app.get('/api-docs', swaggerUi.setup(openapiSpecification));
 
 try {
 	sequelize.authenticate();
