@@ -1,11 +1,11 @@
 require('dotenv').config();
 
-const { PORT, POSTGRES_URI } = require('./config');
+const { PORT } = require('./config');
 
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const listEndpoints = require('express-list-endpoints'); // npm i express-list-endpoints
+const listEndpoints = require('express-list-endpoints');
 const swaggerUi = require('swagger-ui-express');
 const swaggerJsdoc = require('swagger-jsdoc');
 
@@ -20,7 +20,7 @@ const options = {
 			version: '1.0.0',
 		},
 	},
-	apis: ['./index.js', './routes/*.js'], // files containing annotations as above
+	apis: ['./index.js', './routes/*.js'],
 };
 
 const openapiSpecification = swaggerJsdoc(options);
