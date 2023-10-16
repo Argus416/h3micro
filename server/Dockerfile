@@ -1,13 +1,17 @@
 FROM node:18
 
-WORKDIR /server
+WORKDIR /usr/src/server
 
 COPY package*.json ./
 
-RUN npm install
+RUN yarn global add nodemon
+
+RUN yarn install
 
 COPY . .
 
+USER node
+
 EXPOSE 8000
 
-CMD [ "node", "index.js" ]
+CMD [ "nodemon", "index.js" ]

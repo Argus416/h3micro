@@ -1,11 +1,12 @@
-# Use postgres/example user/password credentials
-version: '3.1'
+version: '3.4'
 
 services:
     db:
         image: postgres
         container_name: h3micro_db
-        restart: always
+        restart: on-failure
+        volumes:
+            - ./db:/var/lib/postgresql/data
         environment:
             POSTGRES_USER: mohamad
             POSTGRES_PASSWORD: 123321
@@ -13,13 +14,16 @@ services:
     client:
         build: ./client
         container_name: h3micro_client
+        stdin_open: true
         ports:
             - '5173:5173'
+            - '3010:3010'
         volumes:
-            - ./client:/app
+            - ./client:/usr/src/client
+            - /usr/src/client/node_modules
         links:
             - server
-        restart: always
+        restart: on-failure
 
     server:
         build: ./server
@@ -27,10 +31,11 @@ services:
         ports:
             - '8000:8000'
         volumes:
-            - ./server:/app
+            - ./server:/usr/src/server
+            - /usr/src/server/node_modules
         links:
             - db
         environment:
             PORT: 8000
             POSTGRES_URI: postgres://mohamad:123321@db:5432/postgres
-        restart: always
+        restart: on-failure

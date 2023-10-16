@@ -1,11 +1,14 @@
 FROM node:18-alpine
 
-WORKDIR /client
+WORKDIR /usr/src/client
 
-EXPOSE 5173
+COPY package.json ./
 
-COPY . ./
+RUN yarn global add nodemon
 
-RUN npm install
+RUN yarn install
+
+EXPOSE 3000
+EXPOSE 3010
 
 CMD ["npm", "run", "dev"]

@@ -19,11 +19,10 @@ function App() {
 		};
 		fetchUsers();
 	}, []);
-	console.log({ API_URL });
 	return (
 		<>
 			<div>
-				<h1>Generative names</h1>
+				<h1>All users</h1>
 				{users.length !== 0 &&
 					users.map((user: any) => (
 						<h2 key={user.id}>
