@@ -10,6 +10,8 @@ services:
         environment:
             POSTGRES_USER: mohamad
             POSTGRES_PASSWORD: 123321
+        ports:
+            - '5432:5432'
         networks:
             - h3micronetwork
 

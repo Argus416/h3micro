@@ -6,4 +6,8 @@ const userRouter = require('./userRouter');
 
 router.use('/posts', postRouter);
 router.use('/users', userRouter);
+
+router.get('/', (req, res) => {
+	res.send('Server is running');
+});
 module.exports = router;
