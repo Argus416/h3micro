@@ -4,7 +4,33 @@ version: '3.1'
 services:
     db:
         image: postgres
+        container_name: h3micro_db
         restart: always
         environment:
             POSTGRES_USER: mohamad
             POSTGRES_PASSWORD: 123321
+
+    client:
+        build: ./client
+        container_name: h3micro_client
+        ports:
+            - '5173:5173'
+        volumes:
+            - ./client:/app
+        links:
+            - server
+        restart: always
+
+    server:
+        build: ./server
+        container_name: h3micro_server
+        ports:
+            - '8000:8000'
+        volumes:
+            - ./server:/app
+        links:
+            - db
+        environment:
+            PORT: 8000
+            POSTGRES_URI: postgres://mohamad:123321@db:5432/postgres
+        restart: always

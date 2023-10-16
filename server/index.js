@@ -23,8 +23,8 @@ try {
 	console.error('Unable to connect to the database:', error);
 }
 
-app.listen(PORT, () => {
-	console.log(`Server listening on ${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+	console.log(`Server listening on http://localhost:${PORT}`);
 	// console.log(listEndpoints(app));
 }).on('error', (err) => {
 	console.log('Server Error', err);
