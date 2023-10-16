@@ -32,6 +32,10 @@ app.use('/', routes);
 
 /**
  * @openapi
+ * tags:
+ *   - name: Swagger
+ *     description: API Swagger Documentation
+ *
  * /api-docs:
  *   get:
  *     description: Welcome to swagger-jsdoc!
