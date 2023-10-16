@@ -36,7 +36,7 @@ You have illustrated the architecture of your project in vector format (e.g., us
 
 -   [ ] Your project features a reverse proxy service such as Nginx or Traefik.
 -   [ ] SSL and HTTPS are implemented.
--   [ ] Your project has auto-generated documentation, e.g., OpenAPI (formerly Swagger Specification).
+-   [x] Your project has auto-generated documentation, e.g., OpenAPI (formerly Swagger Specification).
 -   [ ] You have employed an orchestrator like Docker Swarm or Kubernetes to manage your containers.
 -   [ ] Your project is deployed with a public and secure access URL on a cloud provider (e.g., Heroku, GCP, Azure, AWS).
 -   [ ] You have automated tests in your docker-compose.yml file.
