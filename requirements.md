@@ -12,17 +12,17 @@ Please find the specifications for your second-year Microservices module project
 
 -   [x] Your project must include a frontend with a minimum of two routes (e.g., a home page and a generic route).
 -   [x] Your project should have a backend with a database in a specific container. Explain your choice of database technology (relational or non-relational).
--   [ ] The database must be functional, comprising at least one table or collection with an explicit schema.
+-   [x] The database must be functional, comprising at least one table or collection with an explicit schema.
 
--   [ ] Your project must include at least 2 Dockerfiles.
--   [ ] Your project must have at least one docker-compose.yml file.
+-   [x] Your project must include at least 2 Dockerfiles.
+-   [x] Your project must have at least one docker-compose.yml file.
 -   [ ] You have pushed at least one Docker image to a container registry (e.g., Docker Hub, Azure Registry, GCR, etc.).
--   [ ] Your project is publicly accessible online via a version control platform like GitHub, Bitbucket, GitLab, etc.
+-   [x] Your project is publicly accessible online via a version control platform like GitHub, Bitbucket, GitLab, etc.
 -   [ ] Your project has been built without errors (include a screenshot in your README.md), and the public addresses of the images you've built during the project are provided.
 -   You have at least some test files (bash or other) that:
-    -   [ ] Test the health of your containers.
-    -   [ ] Test the proper functioning of your application (frontend and backend).
-    -   [ ] Test the proper functioning of your database.
+    -   [x] Test the health of your containers.
+    -   [x] Test the proper functioning of your application (frontend and backend).
+    -   [x] Test the proper functioning of your database.
 
 **Architecture:**
 
