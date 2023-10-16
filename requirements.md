@@ -16,7 +16,7 @@ Please find the specifications for your second-year Microservices module project
 
 -   [x] Your project must include at least 2 Dockerfiles.
 -   [x] Your project must have at least one docker-compose.yml file.
--   [ ] You have pushed at least one Docker image to a container registry (e.g., Docker Hub, Azure Registry, GCR, etc.).
+-   [x] You have pushed at least one Docker image to a container registry (e.g., Docker Hub, Azure Registry, GCR, etc.).
 -   [x] Your project is publicly accessible online via a version control platform like GitHub, Bitbucket, GitLab, etc.
 -   [ ] Your project has been built without errors (include a screenshot in your README.md), and the public addresses of the images you've built during the project are provided.
 -   You have at least some test files (bash or other) that:
@@ -45,7 +45,7 @@ You have illustrated the architecture of your project in vector format (e.g., us
 
 **Clean Code:**
 
--   [ ] Your project has clear and concise documentation explaining the different endpoints and request types (POST, GET, UPDATE) of your application, as well as the exposed ports.
+-   [x] Your project has clear and concise documentation explaining the different endpoints and request types (POST, GET, UPDATE) of your application, as well as the exposed ports.
 -   [ ] Comments are present in ALL your code files.
 -   [ ] Your root-level README.md on GitHub contains instructions for building and running your project, along with an error-free online demo.
 
