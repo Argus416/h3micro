@@ -1,15 +1,15 @@
 version: '3.4'
 
 services:
-    # db:
-    #     image: postgres
-    #     container_name: h3micro_db
-    #     restart: on-failure
-    #     volumes:
-    #         - ./db:/var/lib/postgresql/data
-    #     environment:
-    #         POSTGRES_USER: mohamad
-    #         POSTGRES_PASSWORD: 123321
+    db:
+        image: postgres
+        container_name: h3micro_db
+        restart: on-failure
+        volumes:
+            - ./db:/var/lib/postgresql/data
+        environment:
+            POSTGRES_USER: mohamad
+            POSTGRES_PASSWORD: 123321
 
     client:
         build: ./client
@@ -21,21 +21,21 @@ services:
         volumes:
             - ./client:/usr/src/client
             - /usr/src/client/node_modules
-        # links:
-        # - server
+        links:
+            - server
         restart: on-failure
 
-    # server:
-    #     build: ./server
-    #     container_name: h3micro_server
-    #     ports:
-    #         - '8000:8000'
-    #     volumes:
-    #         - ./server:/usr/src/server
-    #         - /usr/src/server/node_modules
-    #     links:
-    #         - db
-    #     environment:
-    #         PORT: 8000
-    #         POSTGRES_URI: postgres://mohamad:123321@db:5432/postgres
-    #     restart: on-failure
+    server:
+        build: ./server
+        container_name: h3micro_server
+        ports:
+            - '8000:8000'
+        volumes:
+            - ./server:/usr/src/server
+            - /usr/src/server/node_modules
+        links:
+            - db
+        environment:
+            PORT: 8000
+            POSTGRES_URI: postgres://mohamad:123321@db:5432/postgres
+        restart: on-failure
