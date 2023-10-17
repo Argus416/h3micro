@@ -30,6 +30,7 @@ services:
         restart: on-failure
         networks:
             - h3micronetwork
+
     server:
         build: ./server
         container_name: h3micro_server
@@ -46,6 +47,37 @@ services:
         restart: on-failure
         networks:
             - h3micronetwork
+
+    reverse_proxy_server:
+        image: nginx
+        container_name: h3micro_nginx_server
+        ports:
+            - '80:80'
+            - '443:443'
+        volumes:
+            - ./reverse_proxy/server/nginx.conf:/etc/nginx/nginx.conf
+            - ./reverse_proxy/server/ssl:/etc/nginx/ssl
+        depends_on:
+            - server
+        networks:
+            - h3micronetwork
+        restart: on-failure:3
+
+    reverse_proxy_client:
+        image: nginx
+        container_name: h3micro_nginx_client
+        ports:
+            - '800:800'
+            - '444:444'
+        volumes:
+            - ./reverse_proxy/client/nginx.conf:/etc/nginx/nginx.conf
+            - ./reverse_proxy/client/ssl:/etc/nginx/ssl
+        depends_on:
+            - client
+        networks:
+            - h3micronetwork
+        restart: on-failure:3
+
 networks:
     h3micronetwork:
         driver: bridge

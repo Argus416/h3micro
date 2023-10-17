@@ -4,7 +4,7 @@ services:
     db:
         image: postgres
         container_name: h3micro_db
-        restart: on-failure
+        restart: on-failure:3
         volumes:
             - ./db:/var/lib/postgresql/data
         environment:
@@ -27,7 +27,7 @@ services:
             - /usr/src/client/node_modules
         links:
             - server
-        restart: on-failure
+        restart: on-failure:3
         networks:
             - h3micronetwork
     server:
@@ -43,9 +43,25 @@ services:
         environment:
             PORT: 8000
             POSTGRES_URI: postgres://mohamad:123321@db:5432/postgres
-        restart: on-failure
+        restart: on-failure:3
         networks:
             - h3micronetwork
+
+    reverse_proxy_server:
+        image: nginx
+        container_name: h3micro_nginx_server
+        ports:
+            - '80:80'
+            - '443:443'
+        volumes:
+            - ./reverse_proxy/server/nginx.conf:/etc/nginx/nginx.conf
+            - ./reverse_proxy/server/ssl:/etc/nginx/ssl
+        depends_on:
+            - server
+        networks:
+            - h3micronetwork
+        restart: on-failure:3
+
 networks:
     h3micronetwork:
         driver: bridge
