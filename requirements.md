@@ -34,8 +34,8 @@ You have illustrated the architecture of your project in vector format (e.g., us
 
 **Deployment & Production:**
 
--   [ ] Your project features a reverse proxy service such as Nginx or Traefik.
--   [ ] SSL and HTTPS are implemented.
+-   [x] Your project features a reverse proxy service such as Nginx or Traefik.
+-   [x] SSL and HTTPS are implemented.
 -   [x] Your project has auto-generated documentation, e.g., OpenAPI (formerly Swagger Specification).
 -   [ ] You have employed an orchestrator like Docker Swarm or Kubernetes to manage your containers.
 -   [ ] Your project is deployed with a public and secure access URL on a cloud provider (e.g., Heroku, GCP, Azure, AWS).
