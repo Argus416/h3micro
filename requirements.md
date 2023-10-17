@@ -38,7 +38,7 @@ You have illustrated the architecture of your project in vector format (e.g., us
 -   [x] SSL and HTTPS are implemented.
 -   [x] Your project has auto-generated documentation, e.g., OpenAPI (formerly Swagger Specification).
 -   [ ] You have employed an orchestrator like Docker Swarm or Kubernetes to manage your containers.
--   [ ] Your project is deployed with a public and secure access URL on a cloud provider (e.g., Heroku, GCP, Azure, AWS).
+-   [x] Your project is deployed with a public and secure access URL on a cloud provider (e.g., Heroku, GCP, Azure, AWS). <b>In vercl and render</b>
 -   [ ] You have automated tests in your docker-compose.yml file.
 -   [ ] Real-time monitoring of your containers is in place, and you can share a monitoring dashboard via an external public URL (e.g., Grafana, Prometheus, Weave Scope).
 -   [ ] Your solution includes a queuing or notification management system in the form of a container (e.g., RabbitMQ, Celery) or cloud pub/sub, serverless solutions.
