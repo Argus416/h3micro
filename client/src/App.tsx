@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import axiosInstance from './config/axiosInstance';
+import { Link } from 'react-router-dom';
 
 function App() {
 	const [users, setUsers] = useState([]);
@@ -24,7 +25,7 @@ function App() {
 				{users.length !== 0 &&
 					users.map((user: any) => (
 						<h2 key={user.id}>
-							<a href={`/${user.id}`}>{user.name}</a>
+							<Link to={`/${user.id}`}>{user.name}</Link>
 						</h2>
 					))}
 			</div>

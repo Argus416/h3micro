@@ -4,9 +4,6 @@ WORKDIR /usr/src/client
 
 COPY package.json ./
 
-RUN yarn global add nodemon
-RUN npm i -g pm2
-
 RUN yarn install
 
 EXPOSE 5173
