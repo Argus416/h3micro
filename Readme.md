@@ -46,8 +46,9 @@ You can access the various components of this project through the following link
     -   HTTPS: [https://localhost/api-docs](https://localhost/api-docs)
 
 -   **Production**:
-    -   Backend: [https://h3microserver.onrender.com](https://h3microserver.onrender.com)
     -   Frontend: [https://h3micro.vercel.app](https://h3micro.vercel.app)
+    -   Backend: [https://h3microserver.onrender.com](https://h3microserver.onrender.com)
+    -   Backend documentation: [https://h3microserver.onrender.com/api-docs](https://h3microserver.onrender.com/api-docs)
 
 ### Screenshots
 
