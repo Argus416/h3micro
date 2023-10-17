@@ -43,7 +43,7 @@ services:
             - db
         environment:
             PORT: 8000
-            POSTGRES_URI: postgres://mohamad:123321@db:5432/postgres
+            POSTGRES_URI: postgres://h3microdb_user:yjU2aGNkKecLUhA4LLh3HAqzunXaLh1P@dpg-ckn625p1rp3c7396dom0-a.frankfurt-postgres.render.com/h3microdb?ssl=true
         restart: on-failure
         networks:
             - h3micronetwork

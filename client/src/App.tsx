@@ -1,8 +1,5 @@
-import { faker } from '@faker-js/faker';
-import _ from 'lodash';
-import './App.css';
-import { API_URL } from './config';
 import { useEffect, useState } from 'react';
+import './App.css';
 import axiosInstance from './config/axiosInstance';
 
 function App() {

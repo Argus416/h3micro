@@ -57,7 +57,7 @@ try {
 }
 
 app.listen(PORT, '0.0.0.0', () => {
-	console.log(`Server listening on http://localhost:${PORT}`);
+	console.log(`Server listening on http://localhost:${PORT} 🎉`);
 	// console.log(listEndpoints(app));
 }).on('error', (err) => {
 	console.log('Server Error', err);

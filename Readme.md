@@ -45,6 +45,10 @@ You can access the various components of this project through the following link
     -   HTTP: [http://localhost:8000/api-docs](http://localhost:8000/api-docs)
     -   HTTPS: [https://localhost/api-docs](https://localhost/api-docs)
 
+-   **Production**:
+    -   Backend: [https://h3microserver.onrender.com](https://h3microserver.onrender.com)
+    -   Frontend: []
+
 ### Screenshots
 
 #### Azure Hub
