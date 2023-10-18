@@ -8,6 +8,12 @@ const cors = require('cors');
 const listEndpoints = require('express-list-endpoints');
 const swaggerUi = require('swagger-ui-express');
 const swaggerJsdoc = require('swagger-jsdoc');
+const promBundle = require('express-prom-bundle');
+
+const { Registry } = require('prom-client'); // Import Prometheus registry
+const register = new Registry();
+const metricsMiddleware = promBundle({ register }); // Middleware to expose Prometheus metrics
+app.use(metricsMiddleware);
 
 const routes = require('./routes');
 
@@ -27,7 +33,6 @@ const openapiSpecification = swaggerJsdoc(options);
 
 app.use(cors({ origin: '*' }));
 app.use(express.json());
-
 app.use('/', routes);
 
 /**
