@@ -28,9 +28,9 @@ Please find the specifications for your second-year Microservices module project
 
 You have illustrated the architecture of your project in vector format (e.g., using draw.io or other web tools), including:
 
--   [ ] The different components/services of your application.
--   [ ] Links between these components/services, protocols, and sample requests (e.g., POST, GET) in curl/json format.
--   [ ] Highlighted exposed ports on the client and backend sides.
+-   [x] The different components/services of your application.
+-   [x] Links between these components/services, protocols, and sample requests (e.g., POST, GET) in curl/json format.
+-   [x] Highlighted exposed ports on the client and backend sides.
 
 **Deployment & Production:**
 
@@ -47,7 +47,7 @@ You have illustrated the architecture of your project in vector format (e.g., us
 
 -   [x] Your project has clear and concise documentation explaining the different endpoints and request types (POST, GET, UPDATE) of your application, as well as the exposed ports.
 -   [ ] Comments are present in ALL your code files.
--   [ ] Your root-level README.md on GitHub contains instructions for building and running your project, along with an error-free online demo.
+-   [x] Your root-level README.md on GitHub contains instructions for building and running your project, along with an error-free online demo.
 
 ## Mid-term Report (October 18, 2023)
 
