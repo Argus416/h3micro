@@ -54,14 +54,6 @@ Explore the various components of this project via the following links:
 
 ### Screenshots
 
-#### Azure Hub
-
-![Azure Hub](./images/azure_hub.png)
-
-#### Docker Compose in Action
-
-![Docker Compose Running](./images/docker_compose_running.png)
-
 ### Development Environment Architecture Schema
 
 Here's an architectural overview of the development environment:
@@ -73,3 +65,22 @@ Here's an architectural overview of the development environment:
 The schema generated using the `docker-compose-viz` library visually represents the intricate relationships between all the services.
 
 ![Docker Compose Visualization](./images/docker-compose.png)
+
+#### Azure Hub
+
+![Azure Hub](./images/azure_hub.png)
+
+#### Docker Compose in Action
+
+![Docker Compose Running](./images/docker_compose_running.png)
+
+## Montioring
+
+### Promethus
+
+![Promethus](./images/Prometheus.png)
+
+### Grafana
+
+![Grafana backend](./images/Grafana%20backend.png)
+![Grafana Postgres](./images/Grafana%20PG.png)
