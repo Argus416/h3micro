@@ -1,34 +1,34 @@
-# Project README
+# H3Micro Project README
 
 ## IMPORTANT
 
-In the [requirements.md](./requirements.md), you will find a comprehensive checklist of all completed tasks and their status.
+Please refer to [requirements.md](./requirements.md) for a comprehensive checklist of completed tasks and their status.
 
 ---
 
-## Project: H3Micro
+## Project: H3Micro - Embracing Microservices
 
 ### Introduction
 
-Welcome to the H3Micro project! This endeavor is a live demonstration of microservices architecture, comprising several essential components:
+Welcome to the H3Micro project! This initiative serves as a live demonstration of microservices architecture, featuring a well-coordinated ecosystem of key components:
 
--   **Frontend**: Developed using React.
--   **Backend**: Constructed with Express.js.
--   **Container Network**: Facilitating seamless communication between all containers.
--   **Volumes**: Employed for robust data persistence across containers.
--   **Reverse Proxy**: Powered by Nginx, securing your connections with HTTPS certificates for both frontend and backend.
--   **Scripts**: We've got you covered with helpful scripts for Docker health checks, database testing, and comprehensive front and back-end testing.
+-   **Frontend**: Crafted using React.
+-   **Backend**: Engineered with Express.js.
+-   **Container Network**: Enabling seamless communication among all containers.
+-   **Volumes**: Ensuring resilient data persistence across containers.
+-   **Reverse Proxy**: Empowered by Nginx to safeguard your connections, complete with HTTPS certificates for both frontend and backend.
+-   **Scripts**: Equipped with a range of helpful scripts for Docker health checks, database testing, and comprehensive front-end and back-end testing.
 
 ### Prerequisites
 
-Before diving into this project, ensure you have the following prerequisites installed:
+Before diving into this project, make sure you have the following prerequisites installed:
 
 -   [Docker](https://www.docker.com/get-started)
 -   [Docker Compose](https://docs.docker.com/compose/install)
 
-### Links
+### Access Links
 
-You can access the various components of this project through the following links:
+Explore the various components of this project via the following links:
 
 -   **Frontend**:
 
@@ -46,6 +46,8 @@ You can access the various components of this project through the following link
     -   HTTPS: [https://localhost/api-docs](https://localhost/api-docs)
 
 -   **Production**:
+
+    -   If the backend experiences a delay during startup, it's due to the cold start.
     -   Frontend: [https://h3micro.vercel.app](https://h3micro.vercel.app)
     -   Backend: [https://h3microserver.onrender.com](https://h3microserver.onrender.com)
     -   Backend documentation: [https://h3microserver.onrender.com/api-docs](https://h3microserver.onrender.com/api-docs)
@@ -56,6 +58,18 @@ You can access the various components of this project through the following link
 
 ![Azure Hub](./images/azure_hub.png)
 
-#### Docker Compose Running
+#### Docker Compose in Action
 
 ![Docker Compose Running](./images/docker_compose_running.png)
+
+### Generated Schema with `docker-compose-viz`
+
+The schema generated using the `docker-compose-viz` library visually represents the intricate relationships between all the services.
+
+![Docker Compose Visualization](./images/docker-compose.png)
+
+### Development Environment Architecture Schema
+
+Here's an architectural overview of the development environment:
+
+![Development Environment Architecture](./images/diagram-export-18_10_2023%2011_30_56.png)

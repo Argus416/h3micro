@@ -114,6 +114,19 @@ services:
             - cadvisor
         restart: on-failure
 
+    prometheus:
+        image: prom/prometheus
+        container_name: h3micro_prometheus
+        ports:
+            - '9090:9090'
+        volumes:
+            - ./prometheus/config:/etc/prometheus
+        command:
+            - '--config.file=/etc/prometheus/prometheus.yml'
+        networks:
+            - h3micronetwork
+        restart: on-failure
+
 networks:
     h3micronetwork:
         driver: bridge
