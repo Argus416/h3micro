@@ -1,0 +1,11 @@
+global:
+    scrape_interval: 15s
+
+scrape_configs:
+    - job_name: 'frontend'
+      static_configs:
+          - targets: ['client:5173']
+
+    - job_name: 'backend'
+      static_configs:
+          - targets: ['server:8000']
