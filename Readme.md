@@ -62,14 +62,14 @@ Explore the various components of this project via the following links:
 
 ![Docker Compose Running](./images/docker_compose_running.png)
 
-### Generated Schema with `docker-compose-viz`
-
-The schema generated using the `docker-compose-viz` library visually represents the intricate relationships between all the services.
-
-![Docker Compose Visualization](./images/docker-compose.png)
-
 ### Development Environment Architecture Schema
 
 Here's an architectural overview of the development environment:
 
 ![Development Environment Architecture](./images/diagram-export-18_10_2023%2011_30_56.png)
+
+### Generated Schema with `docker-compose-viz`
+
+The schema generated using the `docker-compose-viz` library visually represents the intricate relationships between all the services.
+
+![Docker Compose Visualization](./images/docker-compose.png)
