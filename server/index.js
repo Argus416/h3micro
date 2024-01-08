@@ -29,6 +29,13 @@ const options = {
 	apis: ['./index.js', './routes/*.js'],
 };
 
+const apm = require('elastic-apm-node').start({
+	serviceName: 'Elastic APM',
+	secretToken: '',
+	logLevel: 'trace',
+	serverUrl: 'http://h3micro_elasticsearch:9200',
+});
+
 const openapiSpecification = swaggerJsdoc(options);
 
 app.use(cors({ origin: '*' }));
