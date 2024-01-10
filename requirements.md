@@ -1,54 +1,57 @@
-# Microservices Project Specifications 🐳
+# 🐳 Spécifications projet System design - ELK 🐳
 
-## Objective
+## Intégration ELK dans votre architecture microservice existante
 
-[ ] Develop a full-stack project using microservices architecture while adhering to technical requirements.
+-   [x] Intégrer Elasticsearch avec votre backend en ajoutant/remplaçant votre base actuelle dans votre `docker-compose.yml` file (vous pouvez vous appuyer sur le cours en ligne et les exemples de fichiers compose).
+-   [x] Intégrer Logstash dans votre projet pour effectuer le traitement et l'agrégation des logs (vous pouvez générer des logs si votre application n’en produit pas assez/pas du tout).
+-   [ ] Développer au moins une pipeline Logstash qui collecte, traite et transfère les logs vers Elasticsearch et l'inclure dans le fichier `docker-compose.yml`.
+-   [ ] Ajouter le service Metricbeat pour collecter et transférer diverses métriques système et de service vers Elasticsearch et inclure Metricbeat dans le `docker-compose.yml`.
 
-## Specifications
+## Streaming de données avec Logstash
 
-Please find the specifications for your second-year Microservices module project. The project will be evaluated based on four criteria. The first two criteria are essential for achieving a passing grade (10/20).
+-   [ ] Mettre en place un mécanisme ou un script de streaming de données qui génère et envoie des données à Logstash (vous pouvez vous appuyer sur les exemples du cours).
 
-**Basic Technical Components:**
+-   [ ] Assurer que vos données en temps réel soient correctement formatées et envoyées à Logstash pour traitement (au minimum une custom pipeline avec des données différentes du cours).
 
--   [x] Your project must include a frontend with a minimum of two routes (e.g., a home page and a generic route).
--   [x] Your project should have a backend with a database in a specific container. Explain your choice of database technology (relational or non-relational).
--   [x] The database must be functional, comprising at least one table or collection with an explicit schema.
+## Tests et validation de pipelines
 
--   [x] Your project must include at least 2 Dockerfiles.
--   [x] Your project must have at least one docker-compose.yml file.
--   [x] You have pushed at least one Docker image to a container registry (e.g., Docker Hub, Azure Registry, GCR, etc.).
--   [x] Your project is publicly accessible online via a version control platform like GitHub, Bitbucket, GitLab, etc.
--   [x] Your project has been built without errors (include a screenshot in your README.md), and the public addresses of the images you've built during the project are provided.
--   You have at least some test files (bash or other) that:
-    -   [x] Test the health of your containers.
-    -   [x] Test the proper functioning of your application (frontend and backend).
-    -   [x] Test the proper functioning of your database.
+-   [ ] Créer des scripts de test pour valider le bon fonctionnement de Elastic, Logstash et Metricbeat, ainsi que du script de streaming de données.
 
-**Architecture:**
+-   [ ] S'assurer que l'intégration de ces outils n'introduise aucun problème dans la configuration existante.
 
-You have illustrated the architecture of your project in vector format (e.g., using draw.io or other web tools), including:
+-   Avoir au moins des fichiers (bash ou autre) de tests qui :
+    -   [x] Testent la santé de vos conteneurs.
+    -   [x] Testent le bon fonctionnement de votre application (front/back).
+    -   [ ] Testent le bon fonctionnement de votre stack ELK.
+    -   [ ] Sont automatisés dans votre `docker-compose.yml` file (au minimum 3).
 
--   [x] The different components/services of your application.
--   [x] Links between these components/services, protocols, and sample requests (e.g., POST, GET) in curl/json format.
--   [x] Highlighted exposed ports on the client and backend sides.
+## Fonctionnalités Applicatives
 
-**Deployment & Production:**
+-   [ ] Implémenter des fonctionnalités de recherche dans le frontend qui exploitent Elasticsearch.
 
--   [x] Your project features a reverse proxy service such as Nginx or Traefik.
--   [x] SSL and HTTPS are implemented.
--   [x] Your project has auto-generated documentation, e.g., OpenAPI (formerly Swagger Specification).
--   [ ] You have employed an orchestrator like Docker Swarm or Kubernetes to manage your containers.
--   [x] Your project is deployed with a public and secure access URL on a cloud provider (e.g., Heroku, GCP, Azure, AWS). <b>In vercl and render</b>
--   [ ] You have automated tests in your docker-compose.yml file.
--   [x] Real-time monitoring of your containers is in place, and you can share a monitoring dashboard via an external public URL (e.g., Grafana, Prometheus, Weave Scope).
--   [ ] Your solution includes a queuing or notification management system in the form of a container (e.g., RabbitMQ, Celery) or cloud pub/sub, serverless solutions.
+-   [ ] Implémenter la fonctionnalité d’auto-complétion de Elasticsearch dans votre front.
 
-**Clean Code:**
+-   [ ] Implémenter un système d’authentification (JWT, OAuth, SSO…).
+    -   Exemple de service auth : [Auth Service](https://www.youtube.com/watch?v=hmkF77F9TLw&t=2054s) / [GitHub Repository](https://github.com/kantancoding/microservices-python).
 
--   [x] Your project has clear and concise documentation explaining the different endpoints and request types (POST, GET, UPDATE) of your application, as well as the exposed ports.
--   [ ] Comments are present in ALL your code files.
--   [x] Your root-level README.md on GitHub contains instructions for building and running your project, along with an error-free online demo.
+## Surveillance continue du flux stream
 
-## Mid-term Report (October 18, 2023)
+-   [ ] Intégrer Elasticsearch avec Kibana pour la visualisation de données et la surveillance en temps réel.
 
-In a few lines, describe your project, detail its architecture, and specify the technologies you plan to use. Push this summary to your README.md at the root of your Git repository.
+-   [ ] Fournir une capture d'écran dans votre `readme.md` à la racine de votre GitHub du tableau de bord Kibana dans le cadre de votre solution de surveillance.
+
+-   [ ] Implémenter un dashboard Kibana avec vos données en temps réel.
+
+-   [ ] Implémenter une action d’intégration continue avec elastic curator tool (cf comme dans le chapitre ELK/monitoring de la doc fournie en cours).
+
+## Documentation de l'Architecture
+
+-   [ ] Mettre à jour le diagramme d'architecture de votre projet pour inclure Elasticsearch, montrant son rôle et son interaction avec d'autres composants/services que vous détaillerez en description.
+
+-   [ ] Votre `readme.md` à la racine de votre GitHub doit contenir les explications nécessaires pour build et run votre projet ainsi qu’une démo en ligne sans erreur et/ou une capture d'écran.
+
+## Suivi continu 🚀
+
+-   [ ] Vous devez envoyer un push GitHub par demi-journée (au minimum).
+
+-   [ ] Si vous rencontrez un problème bloquant votre avancement, ouvrez une issue GitHub (avec capture d'écran) et contactez le professeur en message privé en envoyant le lien.
