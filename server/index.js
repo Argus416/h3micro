@@ -31,13 +31,6 @@ const options = {
 	apis: ['./index.js', './routes/*.js'],
 };
 
-// const apm = require('elastic-apm-node').start({
-// 	serviceName: 'Elastic APM',
-// 	secretToken: '',
-// 	serverUrl: 'http://localhost:9200',
-// 	// serverUrl: 'http://h3micro_elasticsearch:9200',
-// });
-
 const openapiSpecification = swaggerJsdoc(options);
 
 app.use(cors({ origin: '*' }));
@@ -72,7 +65,6 @@ try {
 
 app.listen(PORT, '0.0.0.0', () => {
 	console.log(`Server listening on http://localhost:${PORT} 🎉`);
-	console.log(Object.keys(logger));
 	// console.log(listEndpoints(app));
 }).on('error', (err) => {
 	logger.error('Server Error', err);

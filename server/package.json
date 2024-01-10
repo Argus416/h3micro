@@ -14,7 +14,6 @@
 	"dependencies": {
 		"cors": "^2.8.5",
 		"dotenv": "^16.3.1",
-		"elastic-apm-node": "^4.3.0",
 		"express": "^4.18.2",
 		"express-list-endpoints": "^6.0.0",
 		"express-prom-bundle": "^6.6.0",
@@ -26,6 +25,7 @@
 		"sqlite3": "^5.1.6",
 		"swagger-jsdoc": "^6.2.8",
 		"swagger-ui-express": "^5.0.0",
-		"winston": "^3.11.0"
+		"winston": "^3.11.0",
+		"winston3-logstash-transport": "^1.2.3"
 	}
 }
