@@ -8,7 +8,7 @@ services:
         volumes:
             - ./db:/var/lib/postgresql/data
         environment:
-            POSTGRES_USER: mohamad
+            POSTGRES_USER: postgres
             POSTGRES_PASSWORD: 123321
         ports:
             - '5432:5432'
@@ -42,7 +42,7 @@ services:
             - db
         environment:
             PORT: 8000
-            POSTGRES_URI: postgres://mohamad:123321@db:5432/postgres
+            POSTGRES_URI: postgres://postgres:123321@db:5432/postgres
         restart: on-failure:3
         networks:
             - h3micronetwork
