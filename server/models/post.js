@@ -14,7 +14,5 @@ module.exports = (sequelize, DataTypes) => {
 		Post.belongsTo(models.User, { foreignKey: 'userId' }); // Associate Post with User
 	};
 
-	console.log(Post.associations);
-
 	return Post;
 };

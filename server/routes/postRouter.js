@@ -139,7 +139,6 @@ router
 	})
 	.patch(async (req, res) => {
 		try {
-			console.log(req.body);
 			const { id } = req.params;
 			const post = await Post.update(
 				{

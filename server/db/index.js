@@ -10,7 +10,6 @@ exports.Post = require('../models/post')(sequelize, Sequelize.DataTypes);
 		force: false,
 		logging: false,
 	});
-	console.log('Database tables created');
 })();
 
 exports.sequelize = sequelize;

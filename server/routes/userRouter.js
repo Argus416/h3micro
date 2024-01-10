@@ -48,7 +48,6 @@ router
 	.post(async (req, res) => {
 		try {
 			const { name, email } = req.body;
-			console.log({ name, email });
 			const user = await User.create({
 				name,
 				email,
@@ -133,7 +132,6 @@ router
 	})
 	.patch(async (req, res) => {
 		try {
-			console.log(req.body);
 			const { id } = req.params;
 			const user = await User.update(
 				{

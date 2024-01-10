@@ -13,11 +13,13 @@ const promBundle = require('express-prom-bundle');
 const { Registry } = require('prom-client'); // Import Prometheus registry
 const register = new Registry();
 const metricsMiddleware = promBundle({ register }); // Middleware to expose Prometheus metrics
+
 app.use(metricsMiddleware);
 
 const routes = require('./routes');
-
 const { sequelize } = require('./db');
+const { logger } = require('./config/logger');
+
 const options = {
 	definition: {
 		openapi: '3.0.0',
@@ -29,12 +31,12 @@ const options = {
 	apis: ['./index.js', './routes/*.js'],
 };
 
-const apm = require('elastic-apm-node').start({
-	serviceName: 'Elastic APM',
-	secretToken: '',
-	logLevel: 'trace',
-	serverUrl: 'http://h3micro_elasticsearch:9200',
-});
+// const apm = require('elastic-apm-node').start({
+// 	serviceName: 'Elastic APM',
+// 	secretToken: '',
+// 	serverUrl: 'http://localhost:9200',
+// 	// serverUrl: 'http://h3micro_elasticsearch:9200',
+// });
 
 const openapiSpecification = swaggerJsdoc(options);
 
@@ -63,16 +65,19 @@ app.get('/api-docs', swaggerUi.setup(openapiSpecification));
 
 try {
 	sequelize.authenticate();
-	console.log('Connection has been established successfully.');
+	logger.info('Connection has been established successfully.');
 } catch (error) {
-	console.error('Unable to connect to the database:', error);
+	logger.error('Unable to connect to the database:', error);
 }
 
 app.listen(PORT, '0.0.0.0', () => {
 	console.log(`Server listening on http://localhost:${PORT} 🎉`);
+	console.log(Object.keys(logger));
 	// console.log(listEndpoints(app));
 }).on('error', (err) => {
+	logger.error('Server Error', err);
 	console.log('Server Error', err);
 	sequelize.close();
 	console.log('Database connection closed');
+	logger.error('Database connection closed');
 });
