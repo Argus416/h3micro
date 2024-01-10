@@ -5,7 +5,7 @@
 -   [x] Intégrer Elasticsearch avec votre backend en ajoutant/remplaçant votre base actuelle dans votre `docker-compose.yml` file (vous pouvez vous appuyer sur le cours en ligne et les exemples de fichiers compose).
 -   [x] Intégrer Logstash dans votre projet pour effectuer le traitement et l'agrégation des logs (vous pouvez générer des logs si votre application n’en produit pas assez/pas du tout).
 -   [ ] Développer au moins une pipeline Logstash qui collecte, traite et transfère les logs vers Elasticsearch et l'inclure dans le fichier `docker-compose.yml`.
--   [ ] Ajouter le service Metricbeat pour collecter et transférer diverses métriques système et de service vers Elasticsearch et inclure Metricbeat dans le `docker-compose.yml`.
+-   [x] Ajouter le service Metricbeat pour collecter et transférer diverses métriques système et de service vers Elasticsearch et inclure Metricbeat dans le `docker-compose.yml`.
 
 ## Streaming de données avec Logstash
 
