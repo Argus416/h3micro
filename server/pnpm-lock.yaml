@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@elastic/ecs-winston-format':
+    specifier: ^1.5.2
+    version: 1.5.2
   cors:
     specifier: ^2.8.5
     version: 2.8.5
@@ -96,6 +99,20 @@ packages:
       colorspace: 1.1.4
       enabled: 2.0.0
       kuler: 2.0.0
+    dev: false
+
+  /@elastic/ecs-helpers@2.1.1:
+    resolution: {integrity: sha512-ItoNazMnYdlUCmkBYTXc3SG6PF7UlVTbvMdHPvXkfTMPdwGv2G1Xtp5CjDHaGHGOZSwaDrW4RSCXvA/lMSU+rg==}
+    engines: {node: '>=10'}
+    dev: false
+
+  /@elastic/ecs-winston-format@1.5.2:
+    resolution: {integrity: sha512-hVvGTWLTYbReVV4JoBaaFKheh268bQYrz8JnN+qo5Qy43IgLWT31L/Wduoh+V4xk8kgyhUJPgmKww9HzAQmWdw==}
+    engines: {node: '>=10'}
+    dependencies:
+      '@elastic/ecs-helpers': 2.1.1
+      safe-stable-stringify: 2.4.3
+      triple-beam: 1.4.1
     dev: false
 
   /@gar/promisify@1.1.3:
