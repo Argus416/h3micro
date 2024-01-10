@@ -27,7 +27,6 @@
 		"swagger-jsdoc": "^6.2.8",
 		"swagger-ui-express": "^5.0.0",
 		"winston": "^3.11.0",
-		"winston-elasticsearch": "^0.17.4",
-		"winston3-logstash-transport": "^1.2.3"
+		"winston-elasticsearch": "^0.17.4"
 	}
 }

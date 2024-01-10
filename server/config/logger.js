@@ -1,15 +1,16 @@
 const winston = require('winston');
-const { ElasticsearchTransport } = require('winston-elasticsearch');
+const ecsFormat = require('@elastic/ecs-winston-format');
 
-const esTransport = new ElasticsearchTransport({
-	level: 'info',
-	indexPrefix: 'node_api',
-	clientOpts: {
-		node: 'http://localhost:9200',
-	},
-});
 const logger = winston.createLogger({
-	transports: [esTransport, new winston.transports.Console()],
+	level: 'debug',
+	format: ecsFormat({ convertReqRes: true }),
+	transports: [
+		//new winston.transports.Console(),
+		new winston.transports.File({
+			//path to log file
+			filename: 'logs/log.json',
+			level: 'debug',
+		}),
+	],
 });
-
 exports.logger = logger;

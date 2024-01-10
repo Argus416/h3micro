@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { Post } = require('../db');
+const { logger } = require('../config/logger');
 
 /**
  * @openapi
@@ -57,6 +58,7 @@ router
 			});
 			res.json({ post });
 		} catch (e) {
+			logger.error('Unable to create post', e);
 			res.send(`Unable to create post: ${e}`);
 		}
 	});

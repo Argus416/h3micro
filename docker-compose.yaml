@@ -166,7 +166,7 @@ services:
         volumes:
             - certs:/usr/share/filebeat/certs
             - filebeatdata01:/usr/share/filebeat/data
-            - './filebeat_ingest_data/:/usr/share/filebeat/ingest_data/'
+            - './server/src/logs/:/usr/share/filebeat/ingest_data/'
             - './filebeat.yml:/usr/share/filebeat/filebeat.yml:ro'
             - '/var/lib/docker/containers:/var/lib/docker/containers:ro'
             - '/var/run/docker.sock:/var/run/docker.sock:ro'
@@ -256,83 +256,83 @@ services:
             # - logstash
             # - kibana
 
-    reverse_proxy_server:
-        image: nginx
-        container_name: h3micro_nginx_server
-        ports:
-            - '80:80'
-            - '443:443'
-        volumes:
-            - ./reverse_proxy/server/nginx.conf:/etc/nginx/nginx.conf
-            - ./reverse_proxy/server/ssl:/etc/nginx/ssl
-        depends_on:
-            - server
-        networks:
-            - h3micronetwork
-        restart: on-failure:3
+    # reverse_proxy_server:
+    #     image: nginx
+    #     container_name: h3micro_nginx_server
+    #     ports:
+    #         - '80:80'
+    #         - '443:443'
+    #     volumes:
+    #         - ./reverse_proxy/server/nginx.conf:/etc/nginx/nginx.conf
+    #         - ./reverse_proxy/server/ssl:/etc/nginx/ssl
+    #     depends_on:
+    #         - server
+    #     networks:
+    #         - h3micronetwork
+    #     restart: on-failure:3
 
-    reverse_proxy_client:
-        image: nginx
-        container_name: h3micro_nginx_client
-        ports:
-            - '800:800'
-            - '444:444'
-        volumes:
-            - ./reverse_proxy/client/nginx.conf:/etc/nginx/nginx.conf
-            - ./reverse_proxy/client/ssl:/etc/nginx/ssl
-        depends_on:
-            - client
-        networks:
-            - h3micronetwork
-        restart: on-failure:3
+    # reverse_proxy_client:
+    #     image: nginx
+    #     container_name: h3micro_nginx_client
+    #     ports:
+    #         - '800:800'
+    #         - '444:444'
+    #     volumes:
+    #         - ./reverse_proxy/client/nginx.conf:/etc/nginx/nginx.conf
+    #         - ./reverse_proxy/client/ssl:/etc/nginx/ssl
+    #     depends_on:
+    #         - client
+    #     networks:
+    #         - h3micronetwork
+    #     restart: on-failure:3
 
-    cadvisor:
-        image: gcr.io/cadvisor/cadvisor-arm64:v0.47.2
-        container_name: h3micro_cadvisor
-        privileged: true
-        ports:
-            - '8080:8080'
-        devices:
-            - /dev/kmsg:/dev/kmsg
-        volumes:
-            - /var/run:/var/run:ro
-            - /sys:/sys:ro
-            - /var/lib/docker/:/var/lib/docker:ro
-            - /var/run/docker.sock:/var/run/docker.sock:ro
-            - /etc/machine-id:/etc/machine-id:ro
-            - /var/lib/dbus/machine-id:/var/lib/dbus/machine-id:ro
-        networks:
-            - h3micronetwork
-        restart: always
-        deploy:
-            mode: global
+    # cadvisor:
+    #     image: gcr.io/cadvisor/cadvisor-arm64:v0.47.2
+    #     container_name: h3micro_cadvisor
+    #     privileged: true
+    #     ports:
+    #         - '8080:8080'
+    #     devices:
+    #         - /dev/kmsg:/dev/kmsg
+    #     volumes:
+    #         - /var/run:/var/run:ro
+    #         - /sys:/sys:ro
+    #         - /var/lib/docker/:/var/lib/docker:ro
+    #         - /var/run/docker.sock:/var/run/docker.sock:ro
+    #         - /etc/machine-id:/etc/machine-id:ro
+    #         - /var/lib/dbus/machine-id:/var/lib/dbus/machine-id:ro
+    #     networks:
+    #         - h3micronetwork
+    #     restart: always
+    #     deploy:
+    #         mode: global
 
-    grafana:
-        image: grafana/grafana:latest
-        container_name: h3micro_grafana
-        ports:
-            - '3000:3000'
-        volumes:
-            - ./grafana/data:/var/lib/grafana
-            - ./grafana/provisioning:/etc/grafana/provisioning
-        networks:
-            - h3micronetwork
-        depends_on:
-            - cadvisor
-        restart: on-failure
+    # grafana:
+    #     image: grafana/grafana:latest
+    #     container_name: h3micro_grafana
+    #     ports:
+    #         - '3000:3000'
+    #     volumes:
+    #         - ./grafana/data:/var/lib/grafana
+    #         - ./grafana/provisioning:/etc/grafana/provisioning
+    #     networks:
+    #         - h3micronetwork
+    #     depends_on:
+    #         - cadvisor
+    #     restart: on-failure
 
-    prometheus:
-        image: prom/prometheus
-        container_name: h3micro_prometheus
-        ports:
-            - '9090:9090'
-        volumes:
-            - ./prometheus/config:/etc/prometheus
-        command:
-            - '--config.file=/etc/prometheus/prometheus.yml'
-        networks:
-            - h3micronetwork
-        restart: on-failure
+    # prometheus:
+    #     image: prom/prometheus
+    #     container_name: h3micro_prometheus
+    #     ports:
+    #         - '9090:9090'
+    #     volumes:
+    #         - ./prometheus/config:/etc/prometheus
+    #     command:
+    #         - '--config.file=/etc/prometheus/prometheus.yml'
+    #     networks:
+    #         - h3micronetwork
+    #     restart: on-failure
 
     # elasticsearch:
     #     image: docker.elastic.co/elasticsearch/elasticsearch:8.11.3

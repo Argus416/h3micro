@@ -1,9 +1,8 @@
 filebeat.inputs:
-    - type: filestream
-      id: default-filestream
+    - type: log
+      id: server-logs
       paths:
-          - ingest_data/*.log
-
+          - server/logs/log.json
 filebeat.autodiscover:
     providers:
         - type: docker
@@ -23,3 +22,22 @@ output.elasticsearch:
     password: ${ELASTIC_PASSWORD}
     ssl.enabled: true
     ssl.certificate_authorities: 'certs/ca/ca.crt'
+# filebeat.inputs:
+#     # Each - is an input. Most options can be set at the input level, so
+#     # you can use different inputs for various configurations.
+#     # Below are the input specific configurations.
+
+#     - type: log
+
+#       # Change to true to enable this input configuration.
+#       enabled: true
+
+#       # Paths that should be crawled and fetched. Glob based paths.
+#       paths:
+#           - server/logs/log.json
+# output.elasticsearch:
+#     hosts: ${ELASTIC_HOSTS}
+#     username: ${ELASTIC_USER}
+#     password: ${ELASTIC_PASSWORD}
+#     ssl.enabled: true
+#     ssl.certificate_authorities: 'certs/ca/ca.crt'
