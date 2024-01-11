@@ -166,7 +166,7 @@ services:
         volumes:
             - certs:/usr/share/filebeat/certs
             - filebeatdata01:/usr/share/filebeat/data
-            - './server/logs/:/usr/share/filebeat/ingest_data/'
+            - './server/src/logs/:/usr/share/filebeat/ingest_data/'
             - './filebeat.yml:/usr/share/filebeat/filebeat.yml:ro'
             - '/var/lib/docker/containers:/var/lib/docker/containers:ro'
             - '/var/run/docker.sock:/var/run/docker.sock:ro'
@@ -227,6 +227,7 @@ services:
         restart: on-failure
         networks:
             - h3micronetwork
+
     server:
         build: ./server
         container_name: h3micro_server
@@ -251,6 +252,10 @@ services:
 
         depends_on:
             - db
+            # - elasticsearch
+            # - logstash
+            # - kibana
+
     # reverse_proxy_server:
     #     image: nginx
     #     container_name: h3micro_nginx_server
@@ -328,6 +333,60 @@ services:
     #     networks:
     #         - h3micronetwork
     #     restart: on-failure
+
+    # elasticsearch:
+    #     image: docker.elastic.co/elasticsearch/elasticsearch:8.11.3
+    #     container_name: h3micro_elasticsearch
+    #     # volumes:
+    #     #     - ./elasticsearch/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+    #     environment:
+    #         - discovery.type=single-node
+    #         - xpack.security.enabled=false
+    #         - ES_JAVA_OPTS=-Xms1g -Xmx1g
+    #     ports:
+    #         - '9200:9200'
+    #         - '9300:9300'
+    #     networks:
+    #         - h3micronetwork
+    #     restart: on-failure
+    #     depends_on:
+    #         - cadvisor
+
+    # logstash:
+    #     image: docker.elastic.co/logstash/logstash:8.11.3
+    #     container_name: h3micro_logstash
+    #     ports:
+    #         - '9600:9600'
+    #         - '8089:8089'
+    #         - '5044:5044'
+    #     volumes:
+    #         - ./logstash/logstash.yml:/usr/share/logstash/config/logstash.yml
+    #         - ./logstash/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+    #     environment:
+    #         xpack.monitoring.enabled: 'true'
+    #     networks:
+    #         - h3micronetwork
+    #     restart: on-failure
+    #     depends_on:
+    #         - elasticsearch
+
+    # kibana:
+    #     image: kibana:8.11.3
+    #     container_name: kibana
+    #     # volumes:
+    #     #     - ./kibana/kibana.yml:/usr/share/kibana/config/kibana.yml
+    #     environment:
+    #         - ELASTICSEARCH_HOSTS=http://h3micro_elasticsearch:9200
+    #         - xpack.fleet.agents.enabled=false
+    #     ports:
+    #         - '5601:5601'
+    #     networks:
+    #         - h3micronetwork
+    #     depends_on:
+    #         - elasticsearch
+    #         - logstash
+    #     restart: always
+
 networks:
     h3micronetwork:
         driver: bridge
