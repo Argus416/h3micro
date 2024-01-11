@@ -4,6 +4,7 @@ import axiosInstance from './config/axiosInstance';
 import { Link } from 'react-router-dom';
 import { TextField, Autocomplete, Box, Stack, Button } from '@mui/material';
 import { faker } from '@faker-js/faker';
+import { SignOutButton, SignInButton, SignedIn, SignedOut } from '@clerk/clerk-react';
 
 function App() {
 	const [users, setUsers] = useState([]);
@@ -12,7 +13,7 @@ function App() {
 	const [refreshUsers, setRefreshUsers] = useState(false);
 	const [user, setUser] = useState({
 		name: faker.person.fullName(),
-		email: faker.internet.email(),
+		email: Math.ceil(Math.random() * 100),
 	});
 
 	useEffect(() => {
@@ -65,6 +66,13 @@ function App() {
 
 	return (
 		<>
+			<SignedOut>
+				<SignInButton />
+			</SignedOut>
+			<SignedIn>
+				<SignOutButton aftersignouturl='/' />
+			</SignedIn>
+
 			<h1>All users</h1>
 
 			<Autocomplete
@@ -89,38 +97,40 @@ function App() {
 							</h2>
 						))}
 				</Box>
-				<Stack
-					spacing={2}
-					mt={3}
-					ml={10}
-				>
-					<TextField
-						label='Name'
-						type='text'
-						id='name'
-						name='name'
-						required
-						value={user.name}
-						onChange={(e) => setUser({ ...user, name: e.target.value })}
-					/>
-					<TextField
-						label='Email'
-						type='text'
-						id='email'
-						name='email'
-						required
-						value={user.email}
-						onChange={(e) => setUser({ ...user, email: e.target.value })}
-					/>
-
-					<Button
-						variant='contained'
-						type='button'
-						onClick={addNewUser}
+				<SignedIn>
+					<Stack
+						spacing={2}
+						mt={3}
+						ml={10}
 					>
-						Add new user
-					</Button>
-				</Stack>
+						<TextField
+							label='Name'
+							type='text'
+							id='name'
+							name='name'
+							required
+							value={user.name}
+							onChange={(e) => setUser({ ...user, name: e.target.value })}
+						/>
+						<TextField
+							label='Age'
+							type='text'
+							id='age'
+							name='age'
+							required
+							value={user.email}
+							onChange={(e) => setUser({ ...user, email: e.target.value })}
+						/>
+
+						<Button
+							variant='contained'
+							type='button'
+							onClick={addNewUser}
+						>
+							Add new user
+						</Button>
+					</Stack>
+				</SignedIn>
 			</Stack>
 		</>
 	);
