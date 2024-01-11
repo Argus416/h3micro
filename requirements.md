@@ -31,7 +31,7 @@
 
 -   [x] Implémenter la fonctionnalité d’auto-complétion de Elasticsearch dans votre front.
 
--   [ ] Implémenter un système d’authentification (JWT, OAuth, SSO…).
+-   [x] Implémenter un système d’authentification (JWT, OAuth, SSO…).
     -   Exemple de service auth : [Auth Service](https://www.youtube.com/watch?v=hmkF77F9TLw&t=2054s) / [GitHub Repository](https://github.com/kantancoding/microservices-python).
 
 ## Surveillance continue du flux stream
