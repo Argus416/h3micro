@@ -17,12 +17,12 @@
 
 -   [ ] Créer des scripts de test pour valider le bon fonctionnement de Elastic, Logstash et Metricbeat, ainsi que du script de streaming de données.
 
--   [ ] S'assurer que l'intégration de ces outils n'introduise aucun problème dans la configuration existante.
+-   [x] S'assurer que l'intégration de ces outils n'introduise aucun problème dans la configuration existante.
 
 -   Avoir au moins des fichiers (bash ou autre) de tests qui :
     -   [x] Testent la santé de vos conteneurs.
     -   [x] Testent le bon fonctionnement de votre application (front/back).
-    -   [ ] Testent le bon fonctionnement de votre stack ELK.
+    -   [x] Testent le bon fonctionnement de votre stack ELK.
     -   [ ] Sont automatisés dans votre `docker-compose.yml` file (au minimum 3).
 
 ## Fonctionnalités Applicatives
