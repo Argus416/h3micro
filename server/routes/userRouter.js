@@ -65,6 +65,28 @@ router
 	.post(async (req, res) => {
 		try {
 			const { name, email } = req.body;
+			// Create an index with a mapping that includes a 'completion' field
+			// await client.indices.create({
+			// 	index: 'users', // Replace 'users' with your Elasticsearch index
+			// 	body: {
+			// 		mappings: {
+			// 			properties: {
+			// 				name: {
+			// 					type: 'text',
+			// 					fields: {
+			// 						completion: {
+			// 							type: 'completion',
+			// 						},
+			// 					},
+			// 				},
+			// 				email: {
+			// 					type: 'text',
+			// 				},
+			// 			},
+			// 		},
+			// 	},
+			// });
+
 			const user = await client.index({
 				index: 'users',
 				body: {
