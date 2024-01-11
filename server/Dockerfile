@@ -4,9 +4,9 @@ WORKDIR /usr/src/server
 
 COPY package*.json ./
 
-RUN yarn global add nodemon
+RUN npm i -g pnpm nodemon
 
-RUN yarn install
+RUN pnpm install
 
 COPY . .
 
