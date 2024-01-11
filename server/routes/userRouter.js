@@ -44,7 +44,7 @@ router
 	.route('/')
 	.get(async (req, res) => {
 		try {
-			const users = await client.search({
+			const data = await client.search({
 				index: 'users',
 				body: {
 					query: {
@@ -53,9 +53,10 @@ router
 				},
 			});
 
-			// const users = data.hits.hits.map((hit) => {
-			// 	return { ...hit._source, _id: hit._id };
-			// });
+			const users = data.hits.hits.map((hit) => {
+				return { ...hit._source, _id: hit._id };
+			});
+
 			res.json(users);
 		} catch (e) {
 			logger.error('Unable to retrieve users', e);

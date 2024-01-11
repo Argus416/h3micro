@@ -57,8 +57,16 @@ router.get('/users/:query', async (req, res) => {
 		// const suggestions = data.suggest.userSuggest[0]?.options.map(
 		// 	(option) => option._source.name
 		// );
+		const suggestions =
+			data?.suggest?.userSuggest[0]?.options.map((option) => {
+				return {
+					name: option._source.name,
+					email: option._source.email,
+					_id: option._id,
+				};
+			}) || [];
 
-		res.json({ data });
+		res.json(suggestions);
 	} catch (e) {
 		logger.error('Autocompletion error', e);
 		res.send(`Autocompletion error: ${e}`);

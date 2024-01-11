@@ -1,11 +1,11 @@
 import { useParams } from 'react-router-dom';
 
 const Name = () => {
-	const { name } = useParams();
+	const { id } = useParams();
 
 	return (
 		<div>
-			<h1>Hi {name}</h1>
+			<h1>Hi {id}</h1>
 		</div>
 	);
 };
