@@ -69,6 +69,7 @@ services:
             - esdata01:/usr/share/elasticsearch/data
         ports:
             - ${ES_PORT}:9200
+
         environment:
             - node.name=es01
             - cluster.name=${CLUSTER_NAME}
@@ -86,6 +87,7 @@ services:
             - xpack.security.transport.ssl.certificate_authorities=certs/ca/ca.crt
             - xpack.security.transport.ssl.verification_mode=certificate
             - xpack.license.self_generated.type=${LICENSE}
+
         mem_limit: ${ES_MEM_LIMIT}
         ulimits:
             memlock:
@@ -212,8 +214,6 @@ services:
             POSTGRES_PASSWORD: 123321
         ports:
             - '5432:5432'
-        networks:
-            - h3micronetwork
 
     client:
         build: ./client
@@ -228,16 +228,19 @@ services:
         links:
             - server
         restart: on-failure
-        networks:
-            - h3micronetwork
+        depends_on:
+            setup:
+                condition: service_healthy
+
     server:
         build: ./server
         container_name: h3micro_server
         ports:
             - '8000:8000'
         volumes:
-            - ./server:/usr/src/server
-            - /usr/src/server/node_modules
+            - ./server:/app
+            - /app/node_modules
+            - certs:/app/certs
         links:
             - db
         environment:
@@ -245,15 +248,14 @@ services:
             POSTGRES_URI: postgres://postgres:123321@db:5432/postgres
             # POSTGRES_URI: postgres://h3microdb_user:yjU2aGNkKecLUhA4LLh3HAqzunXaLh1P@dpg-ckn625p1rp3c7396dom0-a.frankfurt-postgres.render.com/h3microdb?ssl=true
         restart: on-failure
-        networks:
-            - h3micronetwork
         logging:
             driver: gelf
             options:
                 gelf-address: 'udp://localhost:5000'
-
         depends_on:
-            - db
+            setup:
+                condition: service_healthy
+
     # reverse_proxy_server:
     #     image: nginx
     #     container_name: h3micro_nginx_server
@@ -331,10 +333,6 @@ services:
     #     networks:
     #         - h3micronetwork
     #     restart: on-failure
-networks:
-    h3micronetwork:
-        driver: bridge
-
 volumes:
     certs:
         driver: local

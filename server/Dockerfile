@@ -1,6 +1,6 @@
 FROM node:18
 
-WORKDIR /usr/src/server
+WORKDIR /app
 
 COPY package*.json ./
 
@@ -10,7 +10,7 @@ RUN pnpm install
 
 COPY . .
 
-USER node
+USER root
 
 EXPOSE 8000
 

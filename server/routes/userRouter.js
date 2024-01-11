@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const { User } = require('../db');
+const { client } = require('../db/elastic');
+const { logger } = require('../config/logger');
 
 /**
  * @openapi
@@ -48,12 +50,22 @@ router
 	.post(async (req, res) => {
 		try {
 			const { name, email } = req.body;
-			const user = await User.create({
-				name,
-				email,
+			// const user = await User.create({
+			// 	name,
+			// 	email,
+			// });
+			const user = await client.index({
+				index: 'users',
+				body: {
+					name,
+					email,
+				},
 			});
+
+			console.log({ user });
 			res.json({ user });
 		} catch (e) {
+			logger.error('Unable to create user', e);
 			res.send(`Unable to create user: ${e}`);
 		}
 	});
