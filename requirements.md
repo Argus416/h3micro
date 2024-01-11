@@ -4,14 +4,14 @@
 
 -   [x] Intégrer Elasticsearch avec votre backend en ajoutant/remplaçant votre base actuelle dans votre `docker-compose.yml` file (vous pouvez vous appuyer sur le cours en ligne et les exemples de fichiers compose).
 -   [x] Intégrer Logstash dans votre projet pour effectuer le traitement et l'agrégation des logs (vous pouvez générer des logs si votre application n’en produit pas assez/pas du tout).
--   [ ] Développer au moins une pipeline Logstash qui collecte, traite et transfère les logs vers Elasticsearch et l'inclure dans le fichier `docker-compose.yml`.
+-   [x] Développer au moins une pipeline Logstash qui collecte, traite et transfère les logs vers Elasticsearch et l'inclure dans le fichier `docker-compose.yml`.
 -   [x] Ajouter le service Metricbeat pour collecter et transférer diverses métriques système et de service vers Elasticsearch et inclure Metricbeat dans le `docker-compose.yml`.
 
 ## Streaming de données avec Logstash
 
--   [ ] Mettre en place un mécanisme ou un script de streaming de données qui génère et envoie des données à Logstash (vous pouvez vous appuyer sur les exemples du cours).
+-   [x] Mettre en place un mécanisme ou un script de streaming de données qui génère et envoie des données à Logstash (vous pouvez vous appuyer sur les exemples du cours).
 
--   [ ] Assurer que vos données en temps réel soient correctement formatées et envoyées à Logstash pour traitement (au minimum une custom pipeline avec des données différentes du cours).
+-   [x] Assurer que vos données en temps réel soient correctement formatées et envoyées à Logstash pour traitement (au minimum une custom pipeline avec des données différentes du cours).
 
 ## Tests et validation de pipelines
 
@@ -36,7 +36,7 @@
 
 ## Surveillance continue du flux stream
 
--   [ ] Intégrer Elasticsearch avec Kibana pour la visualisation de données et la surveillance en temps réel.
+-   [x] Intégrer Elasticsearch avec Kibana pour la visualisation de données et la surveillance en temps réel.
 
 -   [ ] Fournir une capture d'écran dans votre `readme.md` à la racine de votre GitHub du tableau de bord Kibana dans le cadre de votre solution de surveillance.
 
