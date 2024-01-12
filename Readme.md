@@ -50,11 +50,10 @@ Here's an architectural overview of the development environment:
 
 ![Development Environment Architecture](./images/diagram.png)
 
-### Grafana
-
-![Grafana backend](./images/Grafana%20backend.png)
-![Grafana Postgres](./images/Grafana%20PG.png)
-
 ### Metricbeat
 
 ![Development Environment Architecture](./images/elastic-monitoring.png)
+
+## Readtime data dashboard
+
+![Alt text](./images/dashboard.png)
