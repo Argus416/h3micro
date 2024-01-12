@@ -33,24 +33,14 @@ Explore the various components of this project via the following links:
 -   **Frontend**:
 
     -   HTTP: [http://localhost:5173](http://localhost:5173)
-    -   HTTPS: [https://localhost:444](https://localhost:444)
 
 -   **Backend**:
 
     -   HTTP: [http://localhost:8000](http://localhost:8000)
-    -   HTTPS: [https://localhost](https://localhost)
 
 -   **Backend Documentation**:
 
     -   HTTP: [http://localhost:8000/api-docs](http://localhost:8000/api-docs)
-    -   HTTPS: [https://localhost/api-docs](https://localhost/api-docs)
-
--   **Production**:
-
-    -   If the backend experiences a delay during startup, it's due to the cold start.
-    -   Frontend: [https://h3micro.vercel.app](https://h3micro.vercel.app)
-    -   Backend: [https://h3microserver.onrender.com](https://h3microserver.onrender.com)
-    -   Backend documentation: [https://h3microserver.onrender.com/api-docs](https://h3microserver.onrender.com/api-docs)
 
 ### Screenshots
 
@@ -58,27 +48,7 @@ Explore the various components of this project via the following links:
 
 Here's an architectural overview of the development environment:
 
-![Development Environment Architecture](./images/diagram-export-18_10_2023%2011_30_56.png)
-
-### Generated Schema with `docker-compose-viz`
-
-The schema generated using the `docker-compose-viz` library visually represents the intricate relationships between all the services.
-
-![Docker Compose Visualization](./images/docker-compose.png)
-
-#### Azure Hub
-
-![Azure Hub](./images/azure_hub.png)
-
-#### Docker Compose in Action
-
-![Docker Compose Running](./images/docker_compose_running.png)
-
-## Montioring
-
-### Promethus
-
-![Promethus](./images/Prometheus.png)
+![Development Environment Architecture](./images/diagram.png)
 
 ### Grafana
 
@@ -87,4 +57,4 @@ The schema generated using the `docker-compose-viz` library visually represents 
 
 ### Metricbeat
 
-![Alt text](image.png)
+![Development Environment Architecture](./images/elastic-monitoring.png)

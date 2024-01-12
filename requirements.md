@@ -15,7 +15,7 @@
 
 ## Tests et validation de pipelines
 
--   [ ] Créer des scripts de test pour valider le bon fonctionnement de Elastic, Logstash et Metricbeat, ainsi que du script de streaming de données.
+-   [x] Créer des scripts de test pour valider le bon fonctionnement de Elastic, Logstash et Metricbeat, ainsi que du script de streaming de données.
 
 -   [x] S'assurer que l'intégration de ces outils n'introduise aucun problème dans la configuration existante.
 
@@ -38,20 +38,14 @@
 
 -   [x] Intégrer Elasticsearch avec Kibana pour la visualisation de données et la surveillance en temps réel.
 
--   [ ] Fournir une capture d'écran dans votre `readme.md` à la racine de votre GitHub du tableau de bord Kibana dans le cadre de votre solution de surveillance.
+-   [x] Fournir une capture d'écran dans votre `readme.md` à la racine de votre GitHub du tableau de bord Kibana dans le cadre de votre solution de surveillance.
 
--   [ ] Implémenter un dashboard Kibana avec vos données en temps réel.
+-   [x] Implémenter un dashboard Kibana avec vos données en temps réel.
 
 -   [ ] Implémenter une action d’intégration continue avec elastic curator tool (cf comme dans le chapitre ELK/monitoring de la doc fournie en cours).
 
 ## Documentation de l'Architecture
 
--   [ ] Mettre à jour le diagramme d'architecture de votre projet pour inclure Elasticsearch, montrant son rôle et son interaction avec d'autres composants/services que vous détaillerez en description.
+-   [x] Mettre à jour le diagramme d'architecture de votre projet pour inclure Elasticsearch, montrant son rôle et son interaction avec d'autres composants/services que vous détaillerez en description.
 
--   [ ] Votre `readme.md` à la racine de votre GitHub doit contenir les explications nécessaires pour build et run votre projet ainsi qu’une démo en ligne sans erreur et/ou une capture d'écran.
-
-## Suivi continu 🚀
-
--   [ ] Vous devez envoyer un push GitHub par demi-journée (au minimum).
-
--   [ ] Si vous rencontrez un problème bloquant votre avancement, ouvrez une issue GitHub (avec capture d'écran) et contactez le professeur en message privé en envoyant le lien.
+-   [x] Votre `readme.md` à la racine de votre GitHub doit contenir les explications nécessaires pour build et run votre projet ainsi qu’une démo en ligne sans erreur et/ou une capture d'écran.
