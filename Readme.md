@@ -84,3 +84,7 @@ The schema generated using the `docker-compose-viz` library visually represents 
 
 ![Grafana backend](./images/Grafana%20backend.png)
 ![Grafana Postgres](./images/Grafana%20PG.png)
+
+### Metricbeat
+
+![Alt text](image.png)
